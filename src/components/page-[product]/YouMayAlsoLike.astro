@@ -1,0 +1,24 @@
+---
+import Picture from 'components/general/Picture.astro';
+import type { Other } from 'src/utilities'
+
+const { others } = Astro.props
+---
+
+<h2 class='mb-40 md:mb-56 lg:mb-64 || text-center text-24/36 md:text-32'>You may also like</h2>
+<section class='grid grid-cols-1 md:grid-cols-3 || gap-56 md:gap-11 lg:gap-30 || mb-170 lg:mb-240 || text-clr-n5'>
+  {others.map( (current:Other) => (
+    <div>
+      <div class='py-16 mb-32 md:mb-40  || bg-clr-n3 rounded-md'>
+        <Picture name={`mayAlsoLike_${current.slug.replaceAll('-','')}`}
+          styles={{
+            picture:'',  
+            img:'max-h-320 object-contain'}}/>
+      </div>
+      <div class='flex flex-col items-center min-h-165 lg:min-h-200 || '>
+        <h3 class='mb-32 || text-24'>{current.name}
+        </h3>
+        <a class='ButtonStyle1' href={`../${current.category}/${current.slug}`}>see product</a>
+      </div>
+    </div>
+  ))}

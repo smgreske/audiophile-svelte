@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "content/*": ["src/content/*"],
+      "data/*": ["src/data/*"],
+      "layouts/*": ["src/layouts/*"],
+    }
+  },
+  "exclude": ["node_modules"],
+  "extends": "astro/tsconfigs/strict"
+}

@@ -1,0 +1,37 @@
+---
+import allProducts from 'src/data/products.json'
+
+import BestAudioGear from 'components/shared/BestAudioGear.astro';
+import Categories from 'components/shared/Categories.astro';
+import MainLayout from 'components/layout/MainLayout.astro';
+import ResponsiveContainer from 'components/general/ResponsiveContainer.astro';
+import MainInfo from 'components/page-[product]/MainInfo.astro';
+import Features from 'components/page-[product]/Features.astro';
+import ImageShowcase from 'components/page-[product]/ImageShowcase.astro';
+import YouMayAlsoLike from 'components/page-[product]/YouMayAlsoLike.astro';
+
+
+export const getStaticPaths = async () => {
+  return allProducts.map( (current) => {
+    return ({
+        params:{product:`${current.category}/${current.slug}`},
+        props:{product:current}
+    })
+  })
+}
+
+const { product } = Astro.props
+const { id, image, name, slug, category, description, price, new:isNew, features, includes, gallery, others} = product
+---
+
+<MainLayout pageTitle={product.name}>
+  <ResponsiveContainer>
+    <a class='mb-24 lg:mb-56 || mt-16 md:mt-32 lg:mt-80 || text-clr-n5 opacity-50 capitalize' href={'/' + category}>go back</a>
+    <MainInfo {image} {name} {slug} {id} {description} {price} {isNew}/>
+    <Features {features} {includes}/>
+    <ImageShowcase {gallery} {slug}/>
+    <YouMayAlsoLike {others}/>
+    <Categories />
+    <BestAudioGear />
+  </ResponsiveContainer>
+</MainLayout>

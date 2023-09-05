@@ -1,0 +1,22 @@
+---
+import Picture from "components/general/Picture.astro";
+import QuantitySelector from "./QuantitySelector.svelte";
+
+const { name, slug, description, price, isNew, id} = Astro.props
+---
+
+<div class='SplitFlexMd | gap-40 md:gap-72 lg:gap-120 || mb-88 md:mb-120 lg:mb-160 || text-left'>
+
+  <Picture name={`product_${slug.replaceAll('-', '')}`}
+    styles={{
+      picture:' rounded-lg overflow-hidden min-w-200',  
+      img:'object-cover h-full'}}/>
+
+  <div class='flex flex-col justify-center max-w-450 '>
+    {isNew && <p class='TextStyle1 || mb-124 md:mb-116 lg:mb-16'>new product</p>}
+    <h2 class='mb-24 md:mb-32 || text-28/32 lg:text-40/44'>{name}</h2>
+    <p class='mb-24 md:mb-32 || opacity-50'>{description}</p>
+    <p class='mb-32 lg:mb-48 || font-bold text-18'>$ {price}</p>
+    <QuantitySelector client:only {id}/>
+  </div>
+</div>

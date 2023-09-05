@@ -1,0 +1,11 @@
+---
+import ResponsiveContainer from "components/general/ResponsiveContainer.astro";
+const { category } = Astro.props
+---
+
+<header class='text-center bg-clr-n5'>
+  <ResponsiveContainer>
+    <hr class='bg-clr-n1 opacity-20 h-1 m-0'/>
+  </ResponsiveContainer>
+  <h1 class='py-32 md:py-100 text-clr-n1 tracking-[1.43px] text-28 md:text-40'>{category}</h1>
+</header>

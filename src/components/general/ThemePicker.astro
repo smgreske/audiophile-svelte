@@ -1,0 +1,43 @@
+---
+const themeArray = ['one', 'two', 'three']
+---
+
+<fieldset class='flex flex-col gap-8 items-center'>
+  {themeArray.map( (current) => (
+      <label style={{backgroundColor: `var(--clrTheme${current})`}} 
+        class='w-16 h-16 active:bg-clr-default rounded-full border cursor-pointer hover:scale-125' for={current}>
+        <input class='invisible' name='theme-picker' id={current} type="radio" />
+      </label>
+  ))}
+</fieldset>
+
+<style>
+  label { 
+    transition: all 100ms ease-out; 
+  }
+  label:has(:checked) {
+    scale: .4;
+    transition: all 100ms ease-out; 
+  }
+</style>
+
+<script>
+  const themes = document.querySelectorAll(`input[name='theme-picker']`)
+  const defaultTheme = document.querySelector('#one')                    
+  defaultTheme && defaultTheme.setAttribute('checked', 'true')
+
+  const changeTheme = () => {
+    themes.forEach( (current) => {                                    
+      if ((current as HTMLInputElement).checked) {
+        const selectedTheme = current.getAttribute('id')
+        const html =  document.querySelector('html')
+        html && selectedTheme && 
+          html.setAttribute('data-theme', selectedTheme)
+      }
+    })
+  } 
+
+  themes.forEach((current) => {                                     
+    current.addEventListener('change', () => changeTheme())
+  }); 
+</script>

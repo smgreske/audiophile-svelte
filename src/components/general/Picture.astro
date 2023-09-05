@@ -1,0 +1,244 @@
+---
+import { getImage } from 'astro:assets';
+import { breakpoints } from 'src/utilities';
+import type { ImageObject } from 'src/utilities'
+
+// General Images
+
+import bestGearM from 'assets/shared/mobile/image-best-gear.jpg'
+import bestGearT from 'assets/shared/tablet/image-best-gear.jpg'
+import bestGearD from 'assets/shared/desktop/image-best-gear.jpg'
+
+import mayAlsoLikeXX59M from 'assets/shared/mobile/image-xx59-headphones.jpg'
+import mayAlsoLikeXX59T from 'assets/shared/tablet/image-xx59-headphones.jpg'
+import mayAlsoLikeXX59D from 'assets/shared/desktop/image-xx59-headphones.jpg'
+
+import mayAlsoLikeXX99MarkOneM from 'assets/shared/mobile/image-xx99-mark-one-headphones.jpg'
+import mayAlsoLikeXX99MarkOneT from 'assets/shared/tablet/image-xx99-mark-one-headphones.jpg'
+import mayAlsoLikeXX99MarkOneD from 'assets/shared/desktop/image-xx99-mark-one-headphones.jpg'
+
+import mayAlsoLikeXX99MarkTwoM from 'assets/shared/mobile/image-xx99-mark-two-headphones.jpg'
+import mayAlsoLikeXX99MarkTwoT from 'assets/shared/tablet/image-xx99-mark-two-headphones.jpg'
+import mayAlsoLikeXX99MarkTwoD from 'assets/shared/desktop/image-xx99-mark-two-headphones.jpg'
+
+import mayAlsoLikeZX7M from 'assets/shared/mobile/image-zx7-speaker.jpg'
+import mayAlsoLikeZX7T from 'assets/shared/tablet/image-zx7-speaker.jpg'
+import mayAlsoLikeZX7D from 'assets/shared/desktop/image-zx7-speaker.jpg'
+
+import mayAlsoLikeZX9M from 'assets/shared/mobile/image-zx9-speaker.jpg'
+import mayAlsoLikeZX9T from 'assets/shared/tablet/image-zx9-speaker.jpg'
+import mayAlsoLikeZX9D from 'assets/shared/desktop/image-zx9-speaker.jpg'
+
+// Home Images
+
+import heroM from 'src/assets/home/mobile/image-header.jpg'
+import heroT from 'assets/home/tablet/image-header.jpg'
+import heroD from 'assets/home/desktop/image-hero.jpg'
+
+import homeSpeakerZX9M from 'assets/home/mobile/image-speaker-zx9.png'
+import homeSpeakerZX9T from 'assets/home/tablet/image-speaker-zx9.png'
+import homeSpeakerZX9D from 'assets/home/desktop/image-speaker-zx9.png'
+
+import homeSpeakerZX7M from 'assets/home/mobile/image-speaker-zx7.jpg'
+import homeSpeakerZX7T from 'assets/home/tablet/image-speaker-zx7.jpg'
+import homeSpeakerZX7D from 'assets/home/desktop/image-speaker-zx7.jpg'
+
+import homeEarphonesYX1M from 'assets/home/mobile/image-earphones-yx1.jpg'
+import homeEarphonesYX1T from 'assets/home/tablet/image-earphones-yx1.jpg'
+import homeEarphonesYX1D from 'assets/home/desktop/image-earphones-yx1.jpg'
+
+// Category Images
+
+import previewXX59M from 'assets/product-xx59-headphones/mobile/image-category-page-preview.jpg'
+import previewXX59T from 'assets/product-xx59-headphones/tablet/image-category-page-preview.jpg'
+import previewXX59D from 'assets/product-xx59-headphones/desktop/image-category-page-preview.jpg'
+
+import previewXX99MarkOneM from 'assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg'
+import previewXX99MarkOneT from 'assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg'
+import previewXX99MarkOneD from 'assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg'
+
+import previewXX99MarkTwoM from 'assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg'
+import previewXX99MarkTwoT from 'assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg'
+import previewXX99MarkTwoD from 'assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg'
+
+import previewZX7M from 'assets/product-zx7-speaker/mobile/image-category-page-preview.jpg'
+import previewZX7T from 'assets/product-zx7-speaker/tablet/image-category-page-preview.jpg'
+import previewZX7D from 'assets/product-zx7-speaker/desktop/image-category-page-preview.jpg'
+
+import previewZX9M from 'assets/product-zx9-speaker/mobile/image-category-page-preview.jpg'
+import previewZX9T from 'assets/product-zx9-speaker/tablet/image-category-page-preview.jpg'
+import previewZX9D from 'assets/product-zx9-speaker/desktop/image-category-page-preview.jpg'
+
+import previewYX1M from 'assets/product-yx1-earphones/mobile/image-category-page-preview.jpg'
+import previewYX1T from 'assets/product-yx1-earphones/tablet/image-category-page-preview.jpg'
+import previewYX1D from 'assets/product-yx1-earphones/desktop/image-category-page-preview.jpg'
+
+// Product Images
+
+import productXX59M from 'assets/product-xx59-headphones/mobile/image-product.jpg'
+import productXX59T from 'assets/product-xx59-headphones/tablet/image-product.jpg'
+import productXX59D from 'assets/product-xx59-headphones/desktop/image-product.jpg'
+
+import productXX99MarkOneM from 'assets/product-xx99-mark-one-headphones/mobile/image-product.jpg'
+import productXX99MarkOneT from 'assets/product-xx99-mark-one-headphones/tablet/image-product.jpg'
+import productXX99MarkOneD from 'assets/product-xx99-mark-one-headphones/desktop/image-product.jpg'
+
+import productXX99MarkTwoM from 'assets/product-xx99-mark-two-headphones/mobile/image-product.jpg'
+import productXX99MarkTwoT from 'assets/product-xx99-mark-two-headphones/tablet/image-product.jpg'
+import productXX99MarkTwoD from 'assets/product-xx99-mark-two-headphones/desktop/image-product.jpg'
+
+import productZX7M from 'assets/product-zx7-speaker/mobile/image-product.jpg'
+import productZX7T from 'assets/product-zx7-speaker/tablet/image-product.jpg'
+import productZX7D from 'assets/product-zx7-speaker/desktop/image-product.jpg'
+
+import productZX9M from 'assets/product-zx9-speaker/mobile/image-product.jpg'
+import productZX9T from 'assets/product-zx9-speaker/tablet/image-product.jpg'
+import productZX9D from 'assets/product-zx9-speaker/desktop/image-product.jpg'
+
+import productYX1M from 'assets/product-yx1-earphones/mobile/image-product.jpg'
+import productYX1T from 'assets/product-yx1-earphones/tablet/image-product.jpg'
+import productYX1D from 'assets/product-yx1-earphones/desktop/image-product.jpg'
+
+// Image Gallery 1
+
+import galleryOneXX59M from 'assets/product-xx59-headphones/mobile/image-gallery-1.jpg'
+import galleryOneXX59T from 'assets/product-xx59-headphones/tablet/image-gallery-1.jpg'
+import galleryOneXX59D from 'assets/product-xx59-headphones/desktop/image-gallery-1.jpg'
+
+import galleryOneXX99MarkOneM from 'assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg'
+import galleryOneXX99MarkOneT from 'assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg'
+import galleryOneXX99MarkOneD from 'assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg'
+
+import galleryOneXX99MarkTwoM from 'assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg'
+import galleryOneXX99MarkTwoT from 'assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg'
+import galleryOneXX99MarkTwoD from 'assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg'
+
+import galleryOneZX7M from 'assets/product-zx7-speaker/mobile/image-gallery-1.jpg'
+import galleryOneZX7T from 'assets/product-zx7-speaker/tablet/image-gallery-1.jpg'
+import galleryOneZX7D from 'assets/product-zx7-speaker/desktop/image-gallery-1.jpg'
+
+import galleryOneZX9M from 'assets/product-zx9-speaker/mobile/image-gallery-1.jpg'
+import galleryOneZX9T from 'assets/product-zx9-speaker/tablet/image-gallery-1.jpg'
+import galleryOneZX9D from 'assets/product-zx9-speaker/desktop/image-gallery-1.jpg'
+
+import galleryOneYX1M from 'assets/product-yx1-earphones/mobile/image-gallery-1.jpg'
+import galleryOneYX1T from 'assets/product-yx1-earphones/tablet/image-gallery-1.jpg'
+import galleryOneYX1D from 'assets/product-yx1-earphones/desktop/image-gallery-1.jpg'
+
+// Image Gallery 2
+
+import galleryTwoXX59M from 'assets/product-xx59-headphones/mobile/image-gallery-2.jpg'
+import galleryTwoXX59T from 'assets/product-xx59-headphones/tablet/image-gallery-2.jpg'
+import galleryTwoXX59D from 'assets/product-xx59-headphones/desktop/image-gallery-2.jpg'
+
+import galleryTwoXX99MarkOneM from 'assets/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg'
+import galleryTwoXX99MarkOneT from 'assets/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg'
+import galleryTwoXX99MarkOneD from 'assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg'
+
+import galleryTwoXX99MarkTwoM from 'assets/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg'
+import galleryTwoXX99MarkTwoT from 'assets/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg'
+import galleryTwoXX99MarkTwoD from 'assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg'
+
+import galleryTwoZX7M from 'assets/product-zx7-speaker/mobile/image-gallery-2.jpg'
+import galleryTwoZX7T from 'assets/product-zx7-speaker/tablet/image-gallery-2.jpg'
+import galleryTwoZX7D from 'assets/product-zx7-speaker/desktop/image-gallery-2.jpg'
+
+import galleryTwoZX9M from 'assets/product-zx9-speaker/mobile/image-gallery-2.jpg'
+import galleryTwoZX9T from 'assets/product-zx9-speaker/tablet/image-gallery-2.jpg'
+import galleryTwoZX9D from 'assets/product-zx9-speaker/desktop/image-gallery-2.jpg'
+
+import galleryTwoYX1M from 'assets/product-yx1-earphones/mobile/image-gallery-2.jpg'
+import galleryTwoYX1T from 'assets/product-yx1-earphones/tablet/image-gallery-2.jpg'
+import galleryTwoYX1D from 'assets/product-yx1-earphones/desktop/image-gallery-2.jpg'
+
+// Image Gallery 3
+
+import galleryThreeXX59M from 'assets/product-xx59-headphones/mobile/image-gallery-3.jpg'
+import galleryThreeXX59T from 'assets/product-xx59-headphones/tablet/image-gallery-3.jpg'
+import galleryThreeXX59D from 'assets/product-xx59-headphones/desktop/image-gallery-3.jpg'
+
+import galleryThreeXX99MarkOneM from 'assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg'
+import galleryThreeXX99MarkOneT from 'assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg'
+import galleryThreeXX99MarkOneD from 'assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg'
+
+import galleryThreeXX99MarkTwoM from 'assets/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg'
+import galleryThreeXX99MarkTwoT from 'assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg'
+import galleryThreeXX99MarkTwoD from 'assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg'
+
+import galleryThreeZX7M from 'assets/product-zx7-speaker/mobile/image-gallery-3.jpg'
+import galleryThreeZX7T from 'assets/product-zx7-speaker/tablet/image-gallery-3.jpg'
+import galleryThreeZX7D from 'assets/product-zx7-speaker/desktop/image-gallery-3.jpg'
+
+import galleryThreeZX9M from 'assets/product-zx9-speaker/mobile/image-gallery-3.jpg'
+import galleryThreeZX9T from 'assets/product-zx9-speaker/tablet/image-gallery-3.jpg'
+import galleryThreeZX9D from 'assets/product-zx9-speaker/desktop/image-gallery-3.jpg'
+
+import galleryThreeYX1M from 'assets/product-yx1-earphones/mobile/image-gallery-3.jpg'
+import galleryThreeYX1T from 'assets/product-yx1-earphones/tablet/image-gallery-3.jpg'
+import galleryThreeYX1D from 'assets/product-yx1-earphones/desktop/image-gallery-3.jpg'
+
+const { name, styles } = Astro.props
+
+const imageObject:ImageObject = {
+  bestGear:[bestGearM, bestGearT, bestGearD, 'alt'],
+  hero:[heroM, heroT, heroD, 'alt'],
+  homeSpeakerZX9:[homeSpeakerZX9M, homeSpeakerZX9T, homeSpeakerZX9D, 'alt'],
+  homeSpeakerZX7:[homeSpeakerZX7M, homeSpeakerZX7T, homeSpeakerZX7D, 'alt'],
+  homeEarphonesYX1:[homeEarphonesYX1M, homeEarphonesYX1T, homeEarphonesYX1D, 'alt'],
+
+  preview_xx59headphones:[previewXX59M, previewXX59T, previewXX59D, 'alt'],
+  preview_xx99markoneheadphones:[previewXX99MarkOneM, previewXX99MarkOneT, previewXX99MarkOneD, 'alt'],
+  preview_xx99marktwoheadphones:[previewXX99MarkTwoM, previewXX99MarkTwoT, previewXX99MarkTwoD, 'alt'],
+  preview_zx7speaker:[previewZX7M, previewZX7T, previewZX7D, 'alt'],
+  preview_zx9speaker:[previewZX9M, previewZX9T, previewZX9D, 'alt'],
+  preview_yx1earphones:[previewYX1M, previewYX1T, previewYX1D, 'alt'],
+
+  product_xx59headphones:[productXX59M, productXX59T, productXX59D, 'alt'],
+  product_xx99markoneheadphones:[productXX99MarkOneM, productXX99MarkOneT, productXX99MarkOneD, 'alt'],
+  product_xx99marktwoheadphones:[productXX99MarkTwoM, productXX99MarkTwoT, productXX99MarkTwoD, 'alt'],
+  product_zx7speaker:[productZX7M, productZX7T, productZX7D, 'alt'],
+  product_zx9speaker:[productZX9M, productZX9T, productZX9D, 'alt'],
+  product_yx1earphones:[productYX1M, productYX1T, productYX1D, 'alt'],
+
+  galleryOne_xx59headphones:[galleryOneXX59M, galleryOneXX59T, galleryOneXX59D, 'alt'],
+  galleryOne_xx99markoneheadphones:[galleryOneXX99MarkOneM, galleryOneXX99MarkOneT, galleryOneXX99MarkOneD, 'alt'],
+  galleryOne_xx99marktwoheadphones:[galleryOneXX99MarkTwoM, galleryOneXX99MarkTwoT, galleryOneXX99MarkTwoD, 'alt'],
+  galleryOne_zx7speaker:[galleryOneZX7M, galleryOneZX7T, galleryOneZX7D, 'alt'],
+  galleryOne_zx9speaker:[galleryOneZX9M, galleryOneZX9T, galleryOneZX9D, 'alt'],
+  galleryOne_yx1earphones:[galleryOneYX1M, galleryOneYX1T, galleryOneYX1D, 'alt'],
+
+  galleryTwo_xx59headphones:[galleryTwoXX59M, galleryTwoXX59T, galleryTwoXX59D, 'alt'],
+  galleryTwo_xx99markoneheadphones:[galleryTwoXX99MarkOneM, galleryTwoXX99MarkOneT, galleryTwoXX99MarkOneD, 'alt'],
+  galleryTwo_xx99marktwoheadphones:[galleryTwoXX99MarkTwoM, galleryTwoXX99MarkTwoT, galleryTwoXX99MarkTwoD, 'alt'],
+  galleryTwo_zx7speaker:[galleryTwoZX7M, galleryTwoZX7T, galleryTwoZX7D, 'alt'],
+  galleryTwo_zx9speaker:[galleryTwoZX9M, galleryTwoZX9T, galleryTwoZX9D, 'alt'],
+  galleryTwo_yx1earphones:[galleryTwoYX1M, galleryTwoYX1T, galleryTwoYX1D, 'alt'],
+
+  galleryThree_xx59headphones:[galleryThreeXX59M, galleryThreeXX59T, galleryThreeXX59D, 'alt'],
+  galleryThree_xx99markoneheadphones:[galleryThreeXX99MarkOneM, galleryThreeXX99MarkOneT, galleryThreeXX99MarkOneD, 'alt'],
+  galleryThree_xx99marktwoheadphones:[galleryThreeXX99MarkTwoM, galleryThreeXX99MarkTwoT, galleryThreeXX99MarkTwoD, 'alt'],
+  galleryThree_zx7speaker:[galleryThreeZX7M, galleryThreeZX7T, galleryThreeZX7D, 'alt'],
+  galleryThree_zx9speaker:[galleryThreeZX9M, galleryThreeZX9T, galleryThreeZX9D, 'alt'],
+  galleryThree_yx1earphones:[galleryThreeYX1M, galleryThreeYX1T, galleryThreeYX1D, 'alt'],
+
+  mayAlsoLike_xx59headphones:[mayAlsoLikeXX59M, mayAlsoLikeXX59T, mayAlsoLikeXX59D, 'alt'],
+  mayAlsoLike_xx99markoneheadphones:[mayAlsoLikeXX99MarkOneM, mayAlsoLikeXX99MarkOneT, mayAlsoLikeXX99MarkOneD, 'alt'],
+  mayAlsoLike_xx99marktwoheadphones:[mayAlsoLikeXX99MarkTwoM, mayAlsoLikeXX99MarkTwoT, mayAlsoLikeXX99MarkTwoD, 'alt'],
+  mayAlsoLike_zx7speaker:[mayAlsoLikeZX7M, mayAlsoLikeZX7T, mayAlsoLikeZX7D, 'alt'],
+  mayAlsoLike_zx9speaker:[mayAlsoLikeZX9M, mayAlsoLikeZX9T, mayAlsoLikeZX9D, 'alt'],
+}
+
+const optImgM = await getImage({src:imageObject[name][0], format:'avif'})
+const optImgT = await getImage({src:imageObject[name][1], format:'avif'})
+const optImgD = await getImage({src:imageObject[name][2], format:'avif'})
+---
+<picture class={styles.picture}>
+  <source srcset={optImgD.src} media={`(min-width: ${breakpoints.lg})`} />
+  <source srcset={optImgT.src} media={`(min-width: ${breakpoints.md})`} />
+  <img class={styles.img} 
+    src={optImgM.src} 
+    loading='lazy' 
+    height={optImgM.attributes.height} 
+    width={optImgM.attributes.width} 
+    alt={imageObject[name][3]}/> 
+</picture>

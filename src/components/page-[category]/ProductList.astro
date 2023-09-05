@@ -1,0 +1,44 @@
+---
+import Picture from "components/general/Picture.astro";
+import type { Product } from 'src/utilities'
+
+const {filteredProducts, productOrder} = Astro.props
+
+const orderedProducts:Product[] = []
+
+productOrder.forEach( (currentName:string) => {
+  orderedProducts.push(...filteredProducts.filter( (currentProduct:Product) => currentProduct.slug === currentName))
+})
+---
+
+<div class='mb-170 lg:mb-240'>
+  {orderedProducts.map( (current:Product) => (
+
+      <div class='product-container SplitGridLg |  mt-64 md:mt-120'>
+        <Picture name={`preview_${current.slug.replaceAll('-', '')}`}
+          styles={{
+            picture:' rounded-lg overflow-hidden',  
+            img:'object-contain h-full'}}/>
+
+        <div class='lg:self-center md:px-64 '>
+          {current.new && <p class='TextStyle1 | mt-32 mb-24 md:mt-72 md:mb-16 lg:mt-0'>new product</p>}
+          <h2 class='mb-24 md:mb-32 text-28 md:text-40'>{current.name}</h2>
+          <p class='mb-24 lg:mb-40 opacity-50'>{current.description}</p>
+          <a class='ButtonStyle1 m-auto lg:m-0' href={`${current.category}/${current.slug}`}>see product</a>
+        </div>
+      </div>
+  ))}
+</div>
+
+<style>
+
+  @media (min-width: 900px) {
+    .product-container:nth-child(odd) > div {
+      padding-inline: 8vw 0;
+    }
+    .product-container:nth-child(even) > div {
+      padding-inline: 0 8vw;
+      order: -1;
+    }
+  }
+</style>

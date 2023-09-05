@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+import headphones from 'assets/shared/desktop/image-category-thumbnail-headphones.png';
+import speakers from 'assets/shared/desktop/image-category-thumbnail-speakers.png';
+import earphones from 'assets/shared/desktop/image-category-thumbnail-earphones.png';
+
+const categoryArray = [
+  {name:'headphones', image:headphones, path:'/headphones'},
+  {name:'speakers', image:speakers, path:'/speakers'},
+  {name:'earphones', image:earphones, path:'/earphones'},
+]
+---
+
+<section class='grid grid-cols-1 md:grid-cols-3 || gap-80 md:gap-12 lg:gap-32 || mb-120 md:mb-92 lg:mb-190 || text-clr-n5'>
+  {categoryArray.map( (current) => (
+    <div class='flex flex-col items-center min-h-165 lg:min-h-200 || relative || bg-clr-n3 rounded-md'>
+      <Image class='absolute || max-w-160 lg:max-w-240 || -translate-y-[45%]'
+        src={current.image}
+        format='avif'
+        alt={current.name}/>
+      <h2 class='mb-16 || text-15 lg:text-18 || mt-88 lg:mt-116'>
+        {current.name}
+      </h2>
+      <a class='flex gap-8 mb-20 lg:mb-30' href={current.path}>
+        <p class='font-bold opacity-50 text-clr-n5 hover:text-clr-2 hover:opacity-100'>shop</p>
+        <Icon class='w-8 fill-clr-2' name='icon-arrow-right' />
+      </a>
+    </div>
+  ))}
+
+</section>

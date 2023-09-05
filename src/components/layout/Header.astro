@@ -1,0 +1,36 @@
+---
+import CartToggle from 'components/general/CartToggle.astro';
+import NavigationStatic from '../general/NavigationStatic.astro';
+import NavToggle from '../general/NavToggle.astro';
+import SvgLink from '../general/SvgLink.astro';
+import CartModal from 'components/general/CartModal.svelte';
+import NavigationHighlighted from 'components/general/NavigationReactive.svelte';
+
+const { headerType } = Astro.props
+---
+
+<header id='header' class=`ResponsiveMargins | py-32 ${
+  (headerType === 'overlay') ?'absolute w-full z-10' :' relative bg-clr-n5'}`> 
+  <div class='MaxCenter FlexBetween'>
+
+    <div class='md:hidden'>
+      <NavToggle>
+        <NavigationStatic name='mobile' />
+      </NavToggle>
+    </div>
+
+    <div class='flex items-center | gap-40 lg:gap-0'>
+      <SvgLink name='logoHeader'/>
+      <div class='hidden md:contents'>
+        <NavToggle>
+          <NavigationStatic name='mobile' />
+        </NavToggle>
+      </div>
+    </div>
+    <NavigationHighlighted client:only />
+    <CartToggle>
+     
+    </CartToggle>
+
+  </div>
+</header>

@@ -1,0 +1,24 @@
+---
+import type { Includes } from "src/utilities";
+
+const { features, includes } = Astro.props
+---
+
+<div class='SplitFlexLg | gap-88 md:gap-120 | mb-120 md:mb-156 lg:mb-160 |  text-left'>
+  <div class=' lg:max-w-640'>
+    <h3 class='mb-24 md:mb-32 | text-24 md:text-32'>features</h3>
+    <p class='opacity-50 font-medium'>{features}</p>
+  </div>
+
+  <div class='SplitGridMd lg:grid-cols-1 min-w-320'>
+    <h3 class='mb-24 lg-mb-32  | text-24 md:text-32'>in the box</h3>
+    <ul class='flex flex-col gap-8'>
+      {includes.map( (current:Includes) => (       
+        <li class='flex gap-24'>
+          <p class='text-clr-2 font-bold '>{current.quantity + 'x'}</p>
+          <p class='opacity-50'>{current.item}</p>
+        </li>    
+      ))}
+    </ul>
+  </div>    
+</div>

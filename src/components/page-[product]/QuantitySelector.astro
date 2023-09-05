@@ -1,0 +1,56 @@
+---
+const { slug } = Astro.props
+---
+
+<div id='quantitySelector1' data-name={slug} class='flex'>
+  <div class='grid grid-cols-3 place-items-center h-48 w-120 bg-clr-n3'>
+    <button id='decrement'>-</button>
+    <p id='count' class='font-bold text-13'>0</p>
+    <button id='increment'>+</button>
+  </div>
+  <button id='submit' class='ButtonStyle1 ml-16'>Add to Cart</button>
+</div>
+
+
+<!-- --------------------------------------------------- -->
+<script>
+
+import { updateLocalStorage } from 'src/utilities'
+
+  const min = 0
+  const max = 9
+  const startingValue = 0
+   
+  let count = 0
+  const name = document.querySelector('#quantitySelector1')!.getAttribute('data-name')!
+  const countElement = document.querySelector('#count')!
+  const decrement = document.querySelector('#decrement')!
+  const increment = document.querySelector('#increment')!
+  const submit = document.querySelector('#submit')!
+
+  if (count <= min) decrement.setAttribute('disabled', 'true')
+
+  decrement.addEventListener('click', () => {
+    if (count === max) increment.removeAttribute('disabled')
+    count--
+    countElement.innerHTML = count.toString()
+    if (count === min) decrement.setAttribute('disabled', 'true')
+  })
+
+  increment.addEventListener('click', () => {
+    if (count === min) decrement.removeAttribute('disabled')
+    
+    count++
+    countElement.innerHTML = count.toString()
+    if (count === max) increment.setAttribute('disabled', 'true')
+  })
+
+  submit.addEventListener('click', () => {
+    if (count > min) {
+      updateLocalStorage('audiophileProductQuantity', name, count)
+      count = startingValue
+      if (count <= min) decrement.setAttribute('disabled', 'true')
+      countElement.innerHTML = count.toString()
+    }
+  })
+</script>

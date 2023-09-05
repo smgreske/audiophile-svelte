@@ -1,0 +1,32 @@
+---
+import Picture from "components/general/Picture.astro";
+---
+
+<section class='relative | mb-92 md:mb-150 lg:mb-200 | h-600 md:h-720'>
+  <div class='ResponsiveMargins | h-full'>
+    <div class='MaxCenter FlexCenter | flex-col top-200 h-full pt-96 w-full | lg:items-start text-clr-n1'>
+      <p class='mb-16 md:mb-24 | text-14 uppercase opacity-50 tracking-10'>
+        New Product
+      </p>
+      <h1 class='mb-24 | text-36/40 md:text-56/56'>
+        XX99 Mark II<br />
+        Headphones
+      </h1>
+      <p class='mb-28 md:mb-40 | max-w-400 text-15 opacity-70'>
+        Experience natural, lifelike audio and exceptional build quality made
+        for the passionate music enthusiast.
+      </p>
+      <a class='ButtonStyle1'
+        href='/headphones/xx99-mark-two-headphones'>
+        See Product
+      </a>
+    </div>
+    
+    <Picture name='hero'
+      alt='black headphones'
+      styles={{
+        picture:'absolute inset-0 -z-10',  
+        img:'h-600 md:h-720 object-cover object-bottom'}}/>
+
+  </div>
+</section>

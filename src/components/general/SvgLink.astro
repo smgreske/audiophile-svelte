@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon';
+
+const { name } = Astro.props
+
+let iconName = ''
+let path = ''
+let ariaLabel=''
+const style = {
+  a:'',
+  icon:'',
+}
+
+switch (name) {
+  case 'logoHeader':
+    path= '/#header'
+    iconName='logo'
+    style.a= ''
+    style.icon= 'w-145'
+  break;
+
+  case 'logoFooter':
+    path= '/#header'
+    iconName='logo'
+    style.a= 'mb-48 md:mb-32 lg:mb-0 | block'
+    style.icon= 'w-145'
+  break;
+
+  case 'cart':
+    path= '/'
+    iconName='icon-cart'
+    style.a= ''
+    style.icon= 'w-24'
+    break; 
+  default: break;
+}
+---
+
+<a class={style.a} href={path} aria-label={iconName}>
+  <Icon class={style.icon} name={iconName} />
+</a>
+
+
+
+
+
+

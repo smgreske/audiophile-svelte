@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon";
+
+import type { NavLink } from 'src/utilities'
+const { name } = Astro.props;
+
+let navArray:NavLink[] = []
+const styles = {
+  nav:'',
+  a:'',
+  icon:'',
+}
+
+const mainNav = [
+  { name: 'home', path: '/' },
+  { name: 'headphones', path: '/headphones' },
+  { name: 'speakers', path: '/speakers' },
+  { name: 'earphones', path: '/earphones' },
+];
+
+const socialNav = [
+  { icon: 'icon-twitter', path: '//http://www.twitter.com' },
+  { icon: 'instagram', path: '//http://www.instagram.com/scottgreske' },
+  { icon: 'facebook', path: '//http:/www.facebook.com/scott.greske' },
+];
+
+switch (name) {
+  case 'header':
+    navArray = mainNav
+    styles.nav='flex items-center gap-32 w-full mdMax:hidden lg:ms-200 | tracking-2 font-bold'
+    styles.a='hover:text-clr-hover'
+    styles.icon=''
+    break;
+
+  case 'footer':
+    navArray = mainNav
+    styles.nav='flex flex-col md:flex-row items-center | gap-16 | tracking-2 font-bold'
+    styles.a='hover:text-clr-hover'
+    styles.icon=''
+    break;
+
+  case 'mobile':
+    navArray = mainNav
+    styles.nav='flex flex-col items-center gap-64 px-56 py-56  | rounded-lg bg-clr-n1 tracking-2 font-bold'
+    styles.a='hover:text-clr-hover text-clr-n5 '
+    styles.icon=''
+    break;
+
+  case 'social':
+    navArray = socialNav
+    styles.nav='flex gap-16 lg:-translate-y-80'
+    styles.a='w-24 hover:scale-110'
+    styles.icon='fill-clr-n1 hover:fill-clr-hover'
+    break;     
+  default: break;
+}
+---
+
+<nav class={styles.nav}>
+  {navArray.map((current: NavLink) => (
+    <a href={current.path} class={styles.a} aria-label={current.icon}>
+      {current.name && current.name}
+      {current.icon && (<Icon class={styles.icon} name={current.icon}/>)}
+    </a>
+  ))}
+</nav>

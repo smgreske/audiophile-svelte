@@ -1,0 +1,53 @@
+---
+import Picture from 'components/general/Picture.astro';
+---
+
+<section class='flex flex-col || gap-24 md:gap-32 lg:gap-48 || mb-120 md:mb-96 lg:mb-200'>
+  <div class='SplitGridLg place-items-center || overflow-hidden || bg-clr-2 py-14 rounded-lg text-clr-n1 '>
+    
+    <Picture name='homeSpeakerZX9'
+      alt='speaker'
+      styles={{
+        picture:'max-w-170 md:max-w-190 lg:max-w-410 mb-32 lg:pl-64 lg:translate-y-1/4 relative',  
+        img:''}}/>
+        
+    <div class='FlexCenter flex-col lg:items-start max-w-300 || lg:text-start'>
+      <h2 class='mb-24 || text-36/40 md:text-56/58 || '>
+        ZX9<br>
+        SPEAKER</h2>
+      <p class='mb-24 md:mb-40 || opacity-75'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+      <a class='px-32 py-16 || bg-clr-n5 tracking-1' href="/speakers/zx9-speaker">See Product</a>
+    </div>
+  </div>
+  
+  <div class='relative rounded-lg overflow-hidden'>
+
+    <Picture name='homeSpeakerZX7'
+      alt='speaker on table'
+      styles={{
+        picture:'h-320',  
+        img:'object-cover object-left h-full'}}/>
+
+    <div class='AbsoluteCenterVert left-[7vw] text-clr-n5 '>
+      <h2 class='mb-32 || text-28'>ZX7 SPEAKER</h2>
+      <a class='ButtonStyle2' href="/speakers/zx9-speaker">See Product</a>
+    </div>
+  </div>
+  
+
+  <div class='SplitGridMd || place-items-center || gap-24 md:gap-12 lg:gap-32 '>
+
+    <Picture name='homeEarphonesYX1'
+      alt='earphones in charger'
+      styles={{
+        picture:'max-h-320 rounded-lg overflow-hidden',  
+        img:'h-full'}}/>
+
+    <div class='flex items-center px-[7vw] || h-full w-full min-h-200 || bg-clr-n3 rounded-lg'>
+      <div class=' rounded-lg'>
+        <h2 class='mb-32 || text-28'>YX1 EARPHONES</h2>
+        <a class='ButtonStyle2' href="/earphones/yx1-earphones">See Product</a>
+      </div>
+    </div>
+  </div>
+</section>

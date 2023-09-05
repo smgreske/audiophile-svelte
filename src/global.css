@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Custom Properties ------------------------------ */
+  html {
+    --breakpointTablet: 600px;
+    --breakpointDesktop: 900px;
+
+    --marginMobile: 1.5rem;
+    --marginTablet: 2.5rem;
+    --marginDesktop: 2.5rem;
+
+    --maxWidth: 1110px;
+    --fontPrimary: "Manrope";
+
+    /* --clrThemeone: #XXXXX;
+    --clrThemetwo: #XXXXX;
+    --clrThemethree: #XXXXX; */
+  }
+  html[data-theme="one"] {
+    --neutral-1: #ffffff;
+    --neutral-2: #fafafa;
+    --neutral-3: #f1f1f1;
+    --neutral-4: #101010;
+    --neutral-5: #000000;
+    --color-1: #fbaf85;
+    --color-2: #d87d4a;
+    --extra-1: #1f1f1f;
+
+    --clrDefault: var(--neutral-5);
+    --clrBackground: var(--neutral-2);
+    --clrHover: var(--color-1);
+  }
+
+  /* Base Styles ------------------------------------- */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--clrDefault);
+  }
+  html {
+    /* scroll-behavior: smooth; */
+  }
+  body {
+    background-color: var(--clrBackground);
+    color: var(--clrDefault);
+    font-family: var(--fontPrimary);
+    font-size: .9375rem;
+    font-weight: 500;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center;
+    @apply lg:text-start;
+  }
+  a {
+    transition: all 100ms linear;
+    width: fit-content;
+    display: block;
+    font-size: .8125rem;
+    font-weight: 700;
+    color: var(--neutral-1);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: default;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    margin: 0;
+    font-family: var(--fontPrimary);
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  img {
+    display:block;
+    height: auto;
+    width: 100%;
+  }
+  li, ol, ul  {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+  }
+  picture {
+    display: block;
+  }
+  svg {
+    display:block;
+    fill: var(--clrDefault);
+  }
+
+  /* Markdown Styles ---------------------------------- */
+
+  [data-type="markdown"] > h1 {
+    font-size: 2rem;
+  }
+  [data-type="markdown"] > h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@layer components {
+  /* Utility ------------------------------------------- */
+  .AbsoluteCenter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50%, -50%;
+  }
+
+  .AbsoluteCenterHor {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  .AbsoluteCenterVert {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  .FlexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .FlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .MaxCenter {
+    max-width: var(--maxWidth);
+    margin: auto;
+  }
+
+  .ResponsiveMargins {@apply px-[--marginMobile] md:px-[marginTablet] lg:px-[--marginDesktop];}
+  .SplitFlexMd {@apply flex flex-col md:flex-row}
+  .SplitFlexLg {@apply flex flex-col lg:flex-row}
+  .SplitGridMd {@apply grid md:grid-cols-2}
+  .SplitGridLg {@apply grid lg:grid-cols-2}
+
+  .ButtonStyle1 {@apply max-w-fit py-12 px-32 uppercase font-bold bg-clr-2 text-clr-n1 tracking-[1px] hover:bg-clr-hover;}
+  .ButtonStyle2 {@apply px-32 py-16 uppercase text-clr-n5 border tracking-[1px] hover:text-clr-n1 hover:bg-clr-n5;}
+  .TextStyle1 {@apply uppercase text-clr-1 text-14 tracking-[10px];}
+}
