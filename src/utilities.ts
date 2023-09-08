@@ -85,6 +85,7 @@ export const updateLocalStorage = (datasetName:string, property:string, value:an
   }
 
   const data = JSON.parse(localStorage.getItem(datasetName)!)
+  
   !data[property]
     ? data[property] = value
     : data[property] += value 

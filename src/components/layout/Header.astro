@@ -1,10 +1,10 @@
 ---
-import CartToggle from 'components/general/CartToggle.astro';
 import NavigationStatic from '../general/NavigationStatic.astro';
-import NavToggle from '../general/NavToggle.astro';
 import SvgLink from '../general/SvgLink.astro';
-import CartModal from 'components/general/CartModal.svelte';
+import CartModal from 'components/general/Cart.svelte';
 import NavigationHighlighted from 'components/general/NavigationReactive.svelte';
+import Modal from 'components/general/Modal.astro';
+import { Icon } from 'astro-icon';
 
 const { headerType } = Astro.props
 ---
@@ -14,23 +14,27 @@ const { headerType } = Astro.props
   <div class='MaxCenter FlexBetween'>
 
     <div class='md:hidden'>
-      <NavToggle>
-        <NavigationStatic name='mobile' />
-      </NavToggle>
+      <Modal id='nav1'>
+        <Icon class='w-24' name='icon-hamburger' slot='button'/>
+        <NavigationStatic name='mobile' slot='modal'>
+      </Modal>
     </div>
 
     <div class='flex items-center | gap-40 lg:gap-0'>
       <SvgLink name='logoHeader'/>
-      <div class='hidden md:contents'>
-        <NavToggle>
-          <NavigationStatic name='mobile' />
-        </NavToggle>
+
+      <div class='hidden md:contents lg:hidden'>
+        <Modal id='nav2'>
+          <Icon class='w-24' name='icon-hamburger' slot='button'/>
+          <NavigationStatic name='mobile' slot='modal'>
+        </Modal>
       </div>
+
     </div>
     <NavigationHighlighted client:only />
-    <CartToggle>
-     
-    </CartToggle>
-
+    <Modal  id='cart'>
+      <Icon class='w-24' name='icon-cart' slot='button'/>
+      <CartModal client:only slot='modal'/>
+    </Modal>
   </div>
 </header>

@@ -1,25 +1,25 @@
 ---
 import Picture from "components/general/Picture.astro";
 
-const { slug } = Astro.props
+const { id } = Astro.props
 ---
 
 <div class='flex flex-col md:flex-row || mb-120 lg:mb-160 || gap-20' >
   <div >
-    <Picture name={`galleryOne_${slug.replaceAll('-', '')}`}
+    <Picture name={'galleryOne_' + id}
       alt='black headphones'
       styles={{
         picture:'mb-20 md:mb-32 || rounded-lg overflow-hidden ',  
         img:'object-cover h-full'}}/>
 
-    <Picture name={`galleryTwo_${slug.replaceAll('-', '')}`}
+    <Picture name={'galleryTwo_' + id}
       alt='black headphones'
       styles={{
         picture:' rounded-lg overflow-hidden',  
         img:'object-cover h-full'}}/>
 
   </div>
-  <Picture name={`galleryThree_${slug.replaceAll('-', '')}`}
+  <Picture name={'galleryThree_' + id}
       alt='black headphones'
       styles={{
         picture:' rounded-lg overflow-hidden',  

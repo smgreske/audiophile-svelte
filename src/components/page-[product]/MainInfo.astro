@@ -2,12 +2,12 @@
 import Picture from "components/general/Picture.astro";
 import QuantitySelector from "./QuantitySelector.svelte";
 
-const { name, slug, description, price, isNew, id} = Astro.props
+const { name, description, price, isNew, id} = Astro.props
 ---
 
 <div class='SplitFlexMd | gap-40 md:gap-72 lg:gap-120 || mb-88 md:mb-120 lg:mb-160 || text-left'>
-
-  <Picture name={`product_${slug.replaceAll('-', '')}`}
+  
+  <Picture name={'product_' + id}
     styles={{
       picture:' rounded-lg overflow-hidden min-w-200',  
       img:'object-cover h-full'}}/>

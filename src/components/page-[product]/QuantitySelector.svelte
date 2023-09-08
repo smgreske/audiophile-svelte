@@ -2,12 +2,6 @@
   import { localStorageKey, updateLocalStorage } from 'src/utilities';
   import { cartStore } from 'src/cartStore';
 
-  console.log(cartStore)
-
-  cartStore.subscribe((data) => {
-    console.log(data)
-  })
-
   export let id =''
   
   const startingValue = 1
@@ -16,11 +10,19 @@
   let count = startingValue
 
   const addToCart = () => {
-    if (count > 0) {
-      updateLocalStorage(localStorageKey, id, count)
-      // cartStore.update()
-      count = startingValue
-  }}
+    updateLocalStorage(localStorageKey, id, count)
+
+    cartStore.update((data) => {
+      return data.map( (currentObject) => {
+        if (id === currentObject.id)
+          return {...currentObject, quantity:(currentObject.quantity + count)}
+        else 
+          return currentObject
+      })
+    })
+
+    count = startingValue
+  }
 </script>
 
 <div class='flex'>
@@ -29,5 +31,9 @@
     <p class='font-bold text-13'>{count}</p>
     <button disabled={(count >= max)} on:click={() => count++} >+</button>
   </div>
-  <button on:click={addToCart} class='ButtonStyle1 ml-16'>Add to Cart</button>
+  <button 
+    class={(count !== 0)
+      ? 'ButtonStyle1 ml-16'
+      : 'ButtonStyle1 bg-clr-n3 text-clr-n5 hover:bg-clr-n3 ml-16'}
+    disabled={count === 0} on:click={addToCart} >Add to Cart</button>
 </div>

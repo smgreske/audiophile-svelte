@@ -1,0 +1,19 @@
+---
+const { id } = Astro.props
+---
+
+<button class='modalButton' data-id={id} id={'button' + id}>
+  <slot name='button'/>
+</button>
+
+<dialog data-id={id} id={'modal' + id}>
+  <slot name='modal'/>
+</dialog>
+
+<script >
+  const navModalButtons = document.querySelectorAll('.modalButton')
+  navModalButtons.forEach( (current) => {
+    const modal = document.querySelector('#modal' + (current as HTMLButtonElement).dataset.id)
+    current.addEventListener('click', () => (modal as HTMLDialogElement).showModal())
+  })
+</script>

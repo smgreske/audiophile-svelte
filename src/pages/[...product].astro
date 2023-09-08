@@ -29,7 +29,7 @@ const { id, image, name, slug, category, description, price, new:isNew, features
     <a class='mb-24 lg:mb-56 || mt-16 md:mt-32 lg:mt-80 || text-clr-n5 opacity-50 capitalize' href={'/' + category}>go back</a>
     <MainInfo {image} {name} {slug} {id} {description} {price} {isNew}/>
     <Features {features} {includes}/>
-    <ImageShowcase {gallery} {slug}/>
+    <ImageShowcase {gallery} {id}/>
     <YouMayAlsoLike {others}/>
     <Categories />
     <BestAudioGear />
